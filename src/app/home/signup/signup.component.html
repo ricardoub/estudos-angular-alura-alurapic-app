@@ -2,7 +2,7 @@
 
 <form  [formGroup]="signupForm" class="form mt-4">
     <div class="form-group">
-        <input  formControlName="email" placeholder="email" class="form-control" autofocus >
+        <input formControlName="email" placeholder="email" class="form-control" autofocus >
         <ap-vmessage 
             *ngIf="signupForm.get('email').errors?.required"
             text=" E-mail is required!">
@@ -20,11 +20,11 @@
             text=" Full name is required!">
         </ap-vmessage>
         <ap-vmessage 
-            *ngIf="signupForm.get('fullName').errors?.minlenght"
+            *ngIf="signupForm.get('fullName').errors?.minlength"
             text=" Minimun length is 2!">
         </ap-vmessage>
         <ap-vmessage 
-            *ngIf="signupForm.get('fullName').errors?.maxlenght"
+            *ngIf="signupForm.get('fullName').errors?.maxlength"
             text=" Maximun length is 40!">
         </ap-vmessage>
     </div>
@@ -36,15 +36,15 @@
             text=" User name is required!">
         </ap-vmessage>
         <ap-vmessage 
-            *ngIf="signupForm.get('userName').errors?.minlenght"
+            *ngIf="signupForm.get('userName').errors?.minlength"
             text=" Minimun length is 2!">
         </ap-vmessage>
         <ap-vmessage 
-            *ngIf="signupForm.get('userName').errors?.maxlenght"
+            *ngIf="signupForm.get('userName').errors?.maxlength"
             text=" Maximun length is 30!">
         </ap-vmessage>
         <ap-vmessage 
-            *ngIf="signupForm.get('userName').errors?.pattern"
+            *ngIf="signupForm.get('userName').errors?.lowerCase"
             text=" Must be lower case!">
         </ap-vmessage>
     </div>
@@ -52,15 +52,15 @@
     <div class="form-group">
         <input formControlName="password" type="password" placeholder="password" class="form-control">
         <ap-vmessage 
-            *ngIf="signupForm.get('passsword').errors?.required"
-            text=" User name is required!">
+            *ngIf="signupForm.get('password').errors?.required"
+            text=" Password is required!">
         </ap-vmessage>
         <ap-vmessage 
-            *ngIf="signupForm.get('password').errors?.minlenght"
+            *ngIf="signupForm.get('password').errors?.minlength"
             text=" Minimun length is 8!">
         </ap-vmessage>
         <ap-vmessage 
-            *ngIf="signupForm.get('password').errors?.maxlenght"
+            *ngIf="signupForm.get('password').errors?.maxlength"
             text=" Maximun length is 18!">
         </ap-vmessage>
     </div>
