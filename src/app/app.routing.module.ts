@@ -18,7 +18,10 @@ const routes: Routes = [
     { 
         path: 'signup', 
         component: SignUpComponent
-        
+    },
+    { 
+        path: 'user/exists/:userName', 
+        component: SignUpComponent
     },
     { 
         path: 'user/:userName', 
