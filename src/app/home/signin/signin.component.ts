@@ -11,7 +11,7 @@ import { PlataformDetectorService } from 'src/app/core/platform-detector/platfor
 export class SignInComponent implements OnInit {
     
     loginForm: FormGroup;
-    @ViewChild('userNameInput', {static: false}) userNameInput: ElementRef<HTMLInputElement>;
+    @ViewChild('userNameInput', {static: true}) userNameInput: ElementRef<HTMLInputElement>;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -21,11 +21,13 @@ export class SignInComponent implements OnInit {
     ){}
 
     ngOnInit(): void {
+
         this.loginForm = this.formBuilder.group({
             userName: ['', Validators.required],
             password: ['', Validators.required]
         })
 
+        this.usernameFocus();
     }
 
     login() {
@@ -40,10 +42,15 @@ export class SignInComponent implements OnInit {
                 err => {
                     console.log(err);
                     this.loginForm.reset();
-                    this.platformDetectionService.isPlatformBrowser() &&
-                        this.userNameInput.nativeElement.focus();
+                    //this.platformDetectionService.isPlatformBrowser() &&
+                    //    this.userNameInput.nativeElement.focus();
+                    this.usernameFocus();
                     alert('Invalid user name or password');
                 }
             );
+    }
+
+    usernameFocus() {
+        this.platformDetectionService.isPlatformBrowser() && this.userNameInput.nativeElement.focus();
     }
 }
