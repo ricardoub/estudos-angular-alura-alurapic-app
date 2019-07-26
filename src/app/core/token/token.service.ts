@@ -8,14 +8,14 @@ const KEY = 'authToken';
 export class TokenService {
 
     hasToken() {
-        return !!this.gettoken();
+        return !!this.getToken();
     }
 
     setToken(token) {
         window.localStorage.setItem(KEY, token);
     }
 
-    gettoken() {
+    getToken() {
         return window.localStorage.getItem(KEY);
     }
 
